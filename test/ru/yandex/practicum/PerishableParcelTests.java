@@ -16,19 +16,19 @@ public class PerishableParcelTests {
 
     @Test
     public void checkIfIsNotExpiredFalse() {
-        boolean actual = isExpired(13, pp.sendDay, pp.timeToLive);
+        boolean actual = isExpired(13, pp.getSendDay(), pp.getTimeToLive());
         assertFalse(actual);
     }
 
     @Test
     public void checkIfSendDayPlusTimeToLiveEqCurrDayFalse() {
-        boolean actual = isExpired(14, pp.sendDay, pp.timeToLive);
+        boolean actual = isExpired(14, pp.getSendDay(), pp.getTimeToLive());
         assertFalse(actual);
     }
 
     @Test
     public void checkIfIsExpiredTrue() {
-        boolean actual = isExpired(15, pp.sendDay, pp.timeToLive);
+        boolean actual = isExpired(15, pp.getSendDay(), pp.getTimeToLive());
         assertTrue(actual);
     }
 }

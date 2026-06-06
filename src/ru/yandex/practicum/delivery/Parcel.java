@@ -2,19 +2,23 @@ package ru.yandex.practicum.delivery;
 
 public abstract class Parcel {
     protected String description;
-    public int weight;
+    protected int weight;
     protected String deliveryAddress;
-    public int sendDay;
-
-    public static final int STANDARD_COST = 2;
-    public static final int PERISHABLE_COST = 3;
-    public static final int FRAGILE_COST = 4;
+    protected int sendDay;
 
     public Parcel(int sendDay, String deliveryAddress, int weight, String description) {
         this.sendDay = sendDay;
         this.deliveryAddress = deliveryAddress;
         this.weight = weight;
         this.description = description;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public int getSendDay() {
+        return sendDay;
     }
 
     protected void packageItem(String description) {

@@ -7,7 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static ru.yandex.practicum.delivery.Parcel.*;
+import static ru.yandex.practicum.delivery.FragileParcel.FRAGILE_COST;
+import static ru.yandex.practicum.delivery.PerishableParcel.PERISHABLE_COST;
+import static ru.yandex.practicum.delivery.StandardParcel.STANDARD_COST;
 
 public class DeliveryCostTests {
     private List<Parcel> allParcels;
@@ -24,10 +26,10 @@ public class DeliveryCostTests {
 
         int total = 0;
         for(Parcel parcel : allParcels){
-            total += parcel.calculateDeliveryCost(parcel.weight);
+            total += parcel.calculateDeliveryCost(parcel.getWeight());
         }
 
-        assertEquals(sp.weight * STANDARD_COST, total);
+        assertEquals(sp.getWeight() * STANDARD_COST, total);
     }
 
     @Test
@@ -37,10 +39,10 @@ public class DeliveryCostTests {
 
         int total = 0;
         for(Parcel parcel : allParcels){
-            total += parcel.calculateDeliveryCost(parcel.weight);
+            total += parcel.calculateDeliveryCost(parcel.getWeight());
         }
 
-        assertEquals(fp.weight * FRAGILE_COST, total);
+        assertEquals(fp.getWeight() * FRAGILE_COST, total);
     }
 
     @Test
@@ -50,9 +52,9 @@ public class DeliveryCostTests {
 
         int total = 0;
         for(Parcel parcel : allParcels){
-            total += parcel.calculateDeliveryCost(parcel.weight);
+            total += parcel.calculateDeliveryCost(parcel.getWeight());
         }
 
-        assertEquals(pp.weight * PERISHABLE_COST, total);
+        assertEquals(pp.getWeight() * PERISHABLE_COST, total);
     }
 }

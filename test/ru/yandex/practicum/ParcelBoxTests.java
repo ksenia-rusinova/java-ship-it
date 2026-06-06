@@ -20,7 +20,7 @@ public class ParcelBoxTests {
         StandardParcel sp = new StandardParcel(2, "Адрес 1", 50, "Стандартная посылка 1");
         standardBox.addParcel(sp);
 
-        assertFalse(standardBox.l.isEmpty());
+        assertFalse(standardBox.getParcels().isEmpty());
     }
 
     @Test
@@ -28,6 +28,6 @@ public class ParcelBoxTests {
         StandardParcel sp = new StandardParcel(2, "Адрес 1", 51, "Стандартная посылка 1");
         standardBox.addParcel(sp);
 
-        assertTrue(standardBox.l.isEmpty());
+        assertTrue(standardBox.getParcels().isEmpty());
     }
 }

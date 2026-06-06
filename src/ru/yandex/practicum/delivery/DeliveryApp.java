@@ -123,9 +123,13 @@ public class DeliveryApp {
     }
 
     private static void sendParcels() {
-        for(Parcel parcel : allParcels){
-            parcel.packageItem(parcel.description);
-            parcel.deliver(parcel.description, parcel.deliveryAddress);
+        if(!allParcels.isEmpty()){
+            for(Parcel parcel : allParcels){
+                parcel.packageItem(parcel.description);
+                parcel.deliver(parcel.description, parcel.deliveryAddress);
+            }
+        } else {
+            System.out.println("Посылки не добавлены.");
         }
     }
 
@@ -152,11 +156,15 @@ public class DeliveryApp {
     }
 
     private static void addTrack(){
-        System.out.println("Введите новое местоположение посылки.");
-        String newLocation = scanner.nextLine();
+        if(!frParcels.isEmpty()){
+            System.out.println("Введите новое местоположение посылки.");
+            String newLocation = scanner.nextLine();
 
-        for(FragileParcel frParcel : frParcels){
-            frParcel.reportStatus(newLocation);
+            for(FragileParcel frParcel : frParcels){
+                frParcel.reportStatus(newLocation);
+            }
+        } else {
+            System.out.println("Хрупкие посылки не найдены.");
         }
     }
 
